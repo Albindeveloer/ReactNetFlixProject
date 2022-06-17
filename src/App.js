@@ -1,23 +1,43 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Banner from './Components/Banner/Banner';
+import Navbar from './Components/Navbar/Navbar';
+import { useState } from 'react';
+import RowPost from './Components/RowPost/RowPost';
+import { Action, Orginals } from './urls';
 
 function App() {
+  const [post,setPost]=useState([])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Navbar/>
+    <Banner/>
+    <RowPost url={Orginals} title={"Netflix Originals"}/>
+    <RowPost url={Action} title={"Action Movies"} isSmall/>
+
+    {/* <button onClick={()=>{
+      axios.get("https://jsonplaceholder.typicode.com/posts").then((response)=>{
+        console.log(response.data)
+        setPost(response.data)
+      })
+    }}>click api</button>
+
+    <h1>{post.id}</h1>
+    <p>{post.body}</p>
+
+    {
+      post.map((obj,index)=>{
+        return(
+          <div>
+            <h2>{index}</h2>
+            <h1>{obj.title}</h1>
+            <p>{obj.body}</p>
+           
+          </div>
+        )
+      })
+
+    } */}
     </div>
   );
 }
